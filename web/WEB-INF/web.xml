@@ -3,4 +3,21 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd"
          version="4.0">
+<!--    配置 Servlet    -->
+    <servlet>
+        <servlet-name>MyServlet</servlet-name>
+        <servlet-class>ca.monor.web.MyServlet</servlet-class>
+<!--        Servlet 的生命周期 -1 为访问时创建，0 为 tomcat 运行时创建-->
+        <load-on-startup>0</load-on-startup>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>MyServlet</servlet-name>
+        <url-pattern>/MyServlet</url-pattern>
+    </servlet-mapping>
 </web-app>
+
+
+
+
+
