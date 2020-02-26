@@ -9,6 +9,8 @@ import java.sql.Connection;
 import java.sql.SQLException;
 import java.util.Properties;
 
+// 在工具类中，一般情况下，工具类中的方法都会设计成 static 方法，因为工具类一般不创建对象
+
 public class JDBCUtils {
     private static DataSource ds ;
 
