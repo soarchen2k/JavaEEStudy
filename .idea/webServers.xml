@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="WebServers">
+    <option name="servers">
+      <webServer id="3d30251d-1850-487e-bd92-94e18f8dcfab" name="173.82.151.211" url="http://173.82.151.211">
+        <fileTransfer host="173.82.151.211" port="28154" privateKey="$PROJECT_DIR$/../坚果云/5257/其他/KEY/Xshell" accessType="SFTP" keyPair="true">
+          <advancedOptions>
+            <advancedOptions dataProtectionLevel="Private" passiveMode="true" shareSSLContext="true" />
+          </advancedOptions>
+          <option name="port" value="28154" />
+        </fileTransfer>
+      </webServer>
+    </option>
+  </component>
+</project>
