@@ -11,12 +11,13 @@ import java.io.IOException;
 
 @WebServlet("/failServlet")
 public class FailServlet extends HttpServlet {
-    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    protected void doPost(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
         this.doGet(request, response);
     }
 
-    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        User user = (User) request.getAttribute("user");
-        response.getWriter().write("login Failed! "+user.getUsername()+ " Welcome!");
+    protected void doGet(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        response.getWriter().write("login Failed! ");
     }
 }
