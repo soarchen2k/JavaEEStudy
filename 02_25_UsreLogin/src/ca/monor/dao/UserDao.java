@@ -18,7 +18,7 @@ public class UserDao {
             // 2. 调用 query 工具
             return template.queryForObject(sql,
                     new BeanPropertyRowMapper<User>(User.class),
-                    user.getUsername(), user.getPASSWORD());
+                    user.getUsername(), user.getPassword());
         } catch (DataAccessException e) {
             e.printStackTrace();
             return null;

@@ -3,7 +3,7 @@ package ca.monor.domain;
 public class User {
     private int id;
     private String username;
-    private String PASSWORD;
+    private String password;
 
     public User() {}
 
@@ -23,12 +23,12 @@ public class User {
         this.username = username;
     }
 
-    public String getPASSWORD() {
-        return PASSWORD;
+    public String getPassword() {
+        return password;
     }
 
-    public void setPASSWORD(String PASSWORD) {
-        this.PASSWORD = PASSWORD;
+    public void setPassword(String password) {
+        this.password = password;
     }
 
     @Override
@@ -36,7 +36,7 @@ public class User {
         return "User{" +
                 "id=" + id +
                 ", username='" + username + '\'' +
-                ", PASSWORD='" + PASSWORD + '\'' +
+                ", PASSWORD='" + password + '\'' +
                 '}';
     }
 }
