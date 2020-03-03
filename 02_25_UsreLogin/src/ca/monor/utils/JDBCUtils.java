@@ -43,6 +43,12 @@ public class JDBCUtils {
      * 获取连接Connection对象
      */
     public static Connection getConnection() throws SQLException {
-        return  ds.getConnection();
+
+        for (int intVal = 30; intVal < 40; intVal++) {
+            System.out.println("intVal: " + intVal);
+        }
+
+
+            return ds.getConnection();
     }
 }
