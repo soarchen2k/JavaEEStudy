@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Check Code</title>
+    <script>
+        window.onload = function () {
+            var img = document.getElementById("checkCode");
+            img.onclick = function () {
+                // img.src = "/JavaEEResponse/checkCodeServlet"; // 由于浏览器的缓存，导致没有更新
+
+                var date = new Date().getTime();
+                img.src = "/JavaEEResponse/checkCodeServlet" + date;
+            }
+        }
+
+    </script>
+</head>
+<body>
+<img src="/JavaEEResponse/checkCodeServlet" id="checkCode">
+<a id="change" href="checkCode.html">change</a>
+
+</body>
+</html>

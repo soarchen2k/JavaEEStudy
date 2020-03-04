@@ -2,6 +2,7 @@ package ca.monor.web;
 
 import ca.monor.dao.UserDao;
 import ca.monor.domain.User;
+import org.springframework.beans.BeanUtils;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -10,6 +11,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.util.Map;
+
 /**
  获取请求的方式
  get
@@ -25,11 +28,14 @@ public class LoginServlet extends HttpServlet {
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        // 获取请求参数
+        request.setCharacterEncoding("utf-8");
+
+//        // 获取请求参数
+//        Map<String, String[]> map = request.getParameterMap();
         String username = request.getParameter("username");
         String password = request.getParameter("password");
-
-        // 封装对象
+//
+//        // 封装对象
         User loginUser = new User();
         loginUser.setUsername(username);
         loginUser.setPassword(password);
@@ -50,6 +56,5 @@ public class LoginServlet extends HttpServlet {
             request.setAttribute("user", logged);
             request.getRequestDispatcher("/successServlet").forward(request, response);
         }
-
     }
 }

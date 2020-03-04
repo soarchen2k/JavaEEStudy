@@ -48,7 +48,6 @@ public class JDBCUtils {
             System.out.println("intVal: " + intVal);
         }
 
-
             return ds.getConnection();
     }
 }
