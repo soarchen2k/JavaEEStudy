@@ -18,7 +18,7 @@ public class TestUser {
         UserDao dao = new UserDao();
         User logged1 = dao.login(user);
         User logged2 = dao.login(tony);
-        System.out.println(logged1);
-        System.out.println(logged2);
+        System.out.println(logged1 + "logged");
+        System.out.println(logged2 + "logged");
     }
 }
