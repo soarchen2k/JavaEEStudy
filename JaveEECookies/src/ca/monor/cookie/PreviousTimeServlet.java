@@ -15,7 +15,7 @@ public class PreviousTimeServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         // 如果是第一次登录
         Date date = new Date();
-        SimpleDateFormat sdf = new SimpleDateFormat("yyyy MM dd HH:mm:ss");
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
         String str_date = sdf.format(date);
         Cookie cookie = new Cookie("last time: ", str_date);
         cookie.setMaxAge(60 * 60 * 24);
