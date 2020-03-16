@@ -15,32 +15,34 @@ import java.util.Random;
 public class checkCodeServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        // 定义图片的尺寸
         int width = 100;
         int height = 50;
 
-        // 1. 创建图片，包含验证码
+        // 1 创建图片（包含验证码）
         BufferedImage image = new BufferedImage(width, height, BufferedImage.TYPE_INT_RGB);
 
-        // 2. 美化图片，加入干扰信息
-        // 背景色的填充
-        Graphics g = image.getGraphics();
-        // 设置颜色
-        g.setColor(Color.white);
-        // 设置角度
-        g.fillRect(0, 0, width, height);
-        // 边框
-        g.setColor(Color.black);
-        g.drawRect(0, 0, width - 1, height - 1);
+        // 2 美化图片
+        // 背景颜色的填充
+        Graphics graphics = image.getGraphics();
+        graphics.setColor(Color.WHITE);
+        graphics.fillRect(0, 0, width, height);
 
+        // 边框
+        graphics.drawRect(0, 0, width - 1, height - 1);
+        graphics.setColor(Color.RED);
+
+        // 3 图片生成
         String str = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+
         Random random = new Random();
         for (int i = 1; i < 5; i++) {
             int index = random.nextInt(str.length());
             char ch = str.charAt(index);
-            g.drawString(ch + "", width / 5 * i, 40);
+            graphics.drawString(ch + "", width / 5 * i, 40);
         }
 
-        // 3. 输出图片到前端
+        // 4 图片输出到前端
         ImageIO.write(image, "jpg", response.getOutputStream());
     }
 
