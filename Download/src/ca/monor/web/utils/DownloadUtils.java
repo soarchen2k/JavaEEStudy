@@ -1,6 +1,7 @@
 package ca.monor.web.utils;
 
 import sun.misc.BASE64Encoder;
+
 import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
 

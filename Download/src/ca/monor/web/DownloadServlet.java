@@ -1,4 +1,4 @@
-package ca.monor.web.download;
+package ca.monor.web;
 
 import ca.monor.web.utils.DownloadUtils;
 
