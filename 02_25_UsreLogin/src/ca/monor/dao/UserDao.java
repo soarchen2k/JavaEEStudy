@@ -1,7 +1,7 @@
 package ca.monor.dao;
 
 import ca.monor.domain.User;
-import ca.monor.utils.JDBCUtils;
+import ca.monor.web.utils.JDBCUtils;
 import org.springframework.dao.DataAccessException;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;

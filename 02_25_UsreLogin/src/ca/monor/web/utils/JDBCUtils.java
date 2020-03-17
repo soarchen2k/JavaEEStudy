@@ -1,4 +1,4 @@
-package ca.monor.utils;
+package ca.monor.web.utils;
 
 import com.alibaba.druid.pool.DruidDataSourceFactory;
 

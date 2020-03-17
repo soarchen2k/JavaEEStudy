@@ -3,7 +3,6 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/02_25_UsreLogin/02_25_UsreLogin.iml" filepath="$PROJECT_DIR$/02_25_UsreLogin/02_25_UsreLogin.iml" />
-      <module fileurl="file://$PROJECT_DIR$/03-03-Response/03-03-Response.iml" filepath="$PROJECT_DIR$/03-03-Response/03-03-Response.iml" />
       <module fileurl="file://$PROJECT_DIR$/JavaEEResponse/JavaEEResponse.iml" filepath="$PROJECT_DIR$/JavaEEResponse/JavaEEResponse.iml" />
       <module fileurl="file://$PROJECT_DIR$/JavaEEStudy.iml" filepath="$PROJECT_DIR$/JavaEEStudy.iml" />
       <module fileurl="file://$PROJECT_DIR$/JaveEECookies/JaveEECookies.iml" filepath="$PROJECT_DIR$/JaveEECookies/JaveEECookies.iml" />

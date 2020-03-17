@@ -7,18 +7,17 @@
         window.onload = function () {
             var img = document.getElementById("checkCode");
             img.onclick = function () {
-                // img.src = "/JavaEEResponse/checkCodeServlet"; // 由于浏览器的缓存，导致没有更新
 
                 var date = new Date().getTime();
-                img.src = "/JavaEEResponse/checkCodeServlet" + date;
+                img.src = "/response/checkCodeServlet?" + date;
             }
         }
 
     </script>
 </head>
 <body>
-<img src="/JavaEEResponse/checkCodeServlet" id="checkCode">
-<a id="change" href="checkCode.html">change</a>
+<img src="/response/checkCodeServlet" id="checkCode">
+<a id="change" href="checkCode.html"></a>
 
 </body>
 </html>
