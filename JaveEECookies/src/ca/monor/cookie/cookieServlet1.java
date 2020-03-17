@@ -5,15 +5,17 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.*;
 import java.io.IOException;
 
-@WebServlet("/cookieServlet")
-public class cookieServlet extends HttpServlet {
+@WebServlet("/cookieServlet1")
+public class cookieServlet1 extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         doGet(request, response);
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         Cookie cookie = new Cookie("msg", "CookieInfo");
-        HttpSession session = request.getSession();
-        String text = "TEXT";
+        response.addCookie(cookie);
+
+//        HttpSession session = request.getSession();
+//        String text = "TEXT";
     }
 }
