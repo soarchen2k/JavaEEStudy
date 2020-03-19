@@ -39,7 +39,7 @@ public class PreviousTimeServlet extends HttpServlet {
         }
 
         // 如果是第一次登录
-        if (flag == false || cookies == null || cookies.length == 0) {
+        if (!flag || cookies == null || cookies.length == 0) {
             String str_date = strDate();
             Cookie cookie = new Cookie("lastLoginTime", str_date);
             cookie.setMaxAge(60 * 60 * 24);
@@ -48,12 +48,14 @@ public class PreviousTimeServlet extends HttpServlet {
         }
     }
 
+    /**
+     * 输出一个固定格式的日期时间
+     * @return
+     */
     private String strDate() {
         // Date 对象建立一个时间日期对象
         // SimpleDateFormat 对象可以把获取到的日期时间，格式化为我们需要的格式向外输出
-        Date date = new Date();
-        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd-HH:mm:ss");
-        return sdf.format(date);
+        return new SimpleDateFormat("yyyy-MM-dd-HH:mm:ss").format(new Date());
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
