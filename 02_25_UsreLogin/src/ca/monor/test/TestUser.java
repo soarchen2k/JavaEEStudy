@@ -10,11 +10,12 @@ public class TestUser {
     public void testLogin() {
         User user = new User();
         user.setUsername("dal");
-        user.setPassword("123456");
+        user.setPassword("12345");
         User tony = new User();
         tony.setPassword("111111");
         tony.setUsername("tony");
 
+        // 创建一个 UserDao ，用于和服务器交互
         UserDao dao = new UserDao();
         User logged1 = dao.login(user);
         User logged2 = dao.login(tony);

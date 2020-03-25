@@ -17,20 +17,19 @@ public class checkCodeServlet extends HttpServlet {
             throws ServletException, IOException {
         int width = 100;
         int height = 50;
-        BufferedImage image = new BufferedImage(width, height, BufferedImage.TYPE_INT_RGB);
 
         // 1. 创建图片，包含验证码
-
+        BufferedImage image = new BufferedImage(width, height, BufferedImage.TYPE_USHORT_565_RGB);
 
         // 2. 美化图片，加入干扰信息
         // 背景色的填充
         Graphics g = image.getGraphics();
-        // 设置颜色
+        // 设置图片背景颜色
         g.setColor(Color.white);
         // 设置角度
         g.fillRect(0, 0, width, height);
         // 边框
-        g.setColor(Color.black);
+        g.setColor(Color.red);
         g.drawRect(0, 0, width - 1, height - 1);
 
         String str = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
@@ -42,7 +41,7 @@ public class checkCodeServlet extends HttpServlet {
         }
 
         // 3. 输出图片到前端
-        ImageIO.write(image, "jpg", response.getOutputStream());
+        ImageIO.write(image, "png", response.getOutputStream());
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
