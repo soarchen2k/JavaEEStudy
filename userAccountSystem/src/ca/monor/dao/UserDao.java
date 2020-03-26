@@ -24,4 +24,5 @@ public interface UserDao {
 
     public User findUserById(int id);
 
+    public void update(User user);
 }

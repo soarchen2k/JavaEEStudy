@@ -32,14 +32,16 @@ public class userDaoTest {
     @Test
     public void testAddUser() {
         User user = new User();
-        user.setName("tony");
-        user.setGender("M");
-        user.setAge(29);
+        user.setName("Lynn");
+        user.setGender("F");
+        user.setAge(30);
         user.setAddress("trt");
-        user.setQq("123456");
-        user.setEmail("tony@gmail.com");
+        user.setQq("12323456");
+        user.setEmail("lynn@gmail.com");
         UserDao dao = new UserDaoImpl();
-        dao.add(user);
+        for (int i = 0; i < 40; i++) {
+            dao.add(user);
+        }
     }
 
     @Test
@@ -49,6 +51,29 @@ public class userDaoTest {
 
     @Test
     public void testFindUserById() {
-        System.out.println(new UserDaoImpl().findUserById(13));
+        System.out.println(new UserDaoImpl().findUserById(1));
+    }
+
+    @Test
+    public void testUpdate() {
+        User user = new UserDaoImpl().findUserById(78);
+        user.setName("Marie");
+        user.setAge(25);
+        user.setAddress("mtl");
+        user.setQq("7654321");
+        user.setEmail("marie.lepent@gmail.com");
+        new UserDaoImpl().update(user);
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+
