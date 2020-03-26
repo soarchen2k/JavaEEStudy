@@ -3,6 +3,7 @@ package ca.monor.dao.impl;
 import ca.monor.dao.UserDao;
 import ca.monor.domain.User;
 import ca.monor.util.JDBCUtils;
+import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
 
@@ -25,7 +26,13 @@ public class UserDaoImpl implements UserDao {
         String sql = "SELECT * FROM `user` WHERE username=? && `password`=?;";
 
         // template.queryForObject 方法返回一个对象
-        return template.queryForObject(sql, new BeanPropertyRowMapper<>(User.class), username, password);
+        User user;
+        try {
+            user = template.queryForObject(sql, new BeanPropertyRowMapper<>(User.class), username, password);
+        } catch (EmptyResultDataAccessException e) {
+            return null;
+        }
+        return user;
     }
 
     @Override

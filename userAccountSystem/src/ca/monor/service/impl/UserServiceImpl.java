@@ -3,11 +3,11 @@ package ca.monor.service.impl;
 import ca.monor.dao.UserDao;
 import ca.monor.dao.impl.UserDaoImpl;
 import ca.monor.domain.User;
-import ca.monor.service.userService;
+import ca.monor.service.UserService;
 
 import java.util.List;
 
-public class userServiceImpl implements userService {
+public class UserServiceImpl implements UserService {
     private UserDao dao = new UserDaoImpl();
 
     @Override

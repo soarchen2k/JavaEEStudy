@@ -4,7 +4,7 @@ import ca.monor.domain.User;
 
 import java.util.List;
 
-public interface userService {
+public interface UserService {
 
     public List<User> findAll();
 
