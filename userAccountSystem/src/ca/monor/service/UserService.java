@@ -1,8 +1,10 @@
 package ca.monor.service;
 
+import ca.monor.domain.PageBean;
 import ca.monor.domain.User;
 
 import java.util.List;
+import java.util.Map;
 
 public interface UserService {
 
@@ -21,4 +23,6 @@ public interface UserService {
     public User findUserById(int id);
 
     public void updateUser(User user);
+
+    public PageBean<User> findUserByPage(String start, String rows, Map<String, String[]> condition);
 }

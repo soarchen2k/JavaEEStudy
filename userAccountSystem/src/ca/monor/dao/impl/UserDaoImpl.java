@@ -7,7 +7,10 @@ import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
 
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
+import java.util.Set;
 
 public class UserDaoImpl implements UserDao {
     // 拿到数据源
@@ -37,20 +40,20 @@ public class UserDaoImpl implements UserDao {
 
     @Override
     public void add(User user) {
-        String sql = "INSERT INTO `user` VALUES(null, ?, ?, ?, ?, ?, ?, null, null)";
+        String sql = "INSERT INTO `user` VALUES(null, ?, ?, ?, ?, ?, ?, null, null);";
         template.update(sql, user.getName(), user.getGender(), user.getAge(), user.getAddress()
                 , user.getQq(), user.getEmail());
     }
 
     @Override
     public void delete(int id) {
-        String sql = "DELETE FROM `user` WHERE id=?";
+        String sql = "DELETE FROM `user` WHERE id=?;";
         template.update(sql, id);
     }
 
     @Override
     public User findUserById(int id) {
-        String sql = "SELECT * FROM `user` WHERE id = ?";
+        String sql = "SELECT * FROM `user` WHERE id = ?;";
         return template.queryForObject(sql, new BeanPropertyRowMapper<>(User.class), id);
     }
 
@@ -59,5 +62,65 @@ public class UserDaoImpl implements UserDao {
         String sql = "UPDATE `user` SET `name`=?, gender=?, age=?, address=?, qq=?, email=? WHERE id=?;";
         template.update(sql, user.getName(), user.getGender(), user.getAge()
                 , user.getAddress(), user.getQq(), user.getEmail(), user.getId());
+    }
+
+    @Override
+    public int findTotalCount(Map<String, String[]> condition) {
+        String sql = "SELECT COUNT(*) FROM `user` WHERE 1=1 ";
+        StringBuilder stringBuilder = new StringBuilder(sql);
+
+        // 遍历 Map
+        Set<String> keySet = condition.keySet();
+        // 定义一个参数的集合
+        List<Object> params = new ArrayList<>();
+        for (String key : keySet) {
+
+            // 过滤分页信息
+            if ("currentPage".equals(key) || "rows".equals(key)) {
+                continue;
+            }
+
+            // 获取查询条件
+            String value = condition.get(key)[0];
+            if (value != null && !"".equals(value)) {
+                // 有值
+                stringBuilder.append(" && " + key + " like ? ");
+                params.add("%" + value + "%");  // 此处是 ? 中的条件值，%是模糊查询所需的语法
+            }
+        }
+
+        return template.queryForObject(stringBuilder.toString(),
+                Integer.class, params.toArray()); // API 要求传可变参，此处传入数组
+    }
+
+    @Override
+    public List<User> findByPage(int start, int rows, Map<String, String[]> condition) {
+        String sql = "SELECT * FROM `user` WHERE 1=1 ";
+        StringBuilder stringBuilder = new StringBuilder(sql);
+
+        // 遍历 Map
+        Set<String> keySet = condition.keySet();
+        // 定义一个参数的集合
+        List<Object> params = new ArrayList<>();
+        for (String key : keySet) {
+            // 过滤分页信息
+            if ("currentPage".equals(key) || "rows".equals(key)) {
+                continue;
+            }
+
+            // 获取查询条件
+            String value = condition.get(key)[0];
+            if (value != null && !"".equals(value)) {
+                // 有值
+                stringBuilder.append(" && " + key + " like ? ");
+                params.add("%" + value + "%");  // 此处是 ? 中的条件值，%是模糊查询所需的语法
+            }
+        }
+
+        stringBuilder.append(" limit ?, ? ");
+        params.add(start);
+        params.add(rows);
+        return template.query(stringBuilder.toString(),
+                new BeanPropertyRowMapper<>(User.class), params.toArray());
     }
 }

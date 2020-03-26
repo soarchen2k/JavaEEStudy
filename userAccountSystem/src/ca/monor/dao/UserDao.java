@@ -3,6 +3,7 @@ package ca.monor.dao;
 import ca.monor.domain.User;
 
 import java.util.List;
+import java.util.Map;
 
 /**
  * 在接口中先定义所有需要实现的功能
@@ -25,4 +26,10 @@ public interface UserDao {
     public User findUserById(int id);
 
     public void update(User user);
+
+    public int findTotalCount(Map<String, String[]> condition);
+
+    public List<User> findByPage(int start, int rows, Map<String, String[]> condition);
+
+
 }
