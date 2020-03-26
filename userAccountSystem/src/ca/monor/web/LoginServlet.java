@@ -1,7 +1,6 @@
 package ca.monor.web;
 
 import ca.monor.domain.User;
-import ca.monor.service.UserService;
 import ca.monor.service.impl.UserServiceImpl;
 
 import javax.servlet.ServletException;
@@ -19,18 +18,18 @@ public class LoginServlet extends HttpServlet {
         String username = request.getParameter("username");
         String password = request.getParameter("password");
         // 1. 先获取验证码
-        String verifycodeUser = request.getParameter("verifycode");
+        String verifyCodeUser = request.getParameter("verifycode");
 
         // 2. 验证获取的验证码的正确性
         HttpSession session = request.getSession();
-        String checkcode_server = (String) session.getAttribute("CHECKCODE_SERVER");
+        String checkCode_server = (String) session.getAttribute("CHECKCODE_SERVER");
 
         // 3. 为了不重复获取验证码，需要把当前验证码从域中删除掉，保证验证码的唯一化
         session.removeAttribute("CHECKCODE_SERVER");
 
         // 4. 验证校验码
-        if (checkcode_server != null
-                && checkcode_server.equalsIgnoreCase(verifycodeUser)) {
+        if (checkCode_server != null
+                && checkCode_server.equalsIgnoreCase(verifyCodeUser)) {
             // 验证码正确，开始验证用户名和密码
             User logged = new UserServiceImpl().login(username, password);
 
@@ -49,9 +48,7 @@ public class LoginServlet extends HttpServlet {
             // 验证码不正确，需要给用户返回一个错误信息
             request.setAttribute("login_msg", "Check Code Error!");
             request.getRequestDispatcher("/login.jsp").forward(request, response);
-
         }
-
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
