@@ -36,6 +36,9 @@ public class findUserByPageServlet extends HttpServlet {
         // 3. 将装载好的数据传入域中，供前端调用
         request.setAttribute("pb", pageBean);
         request.setAttribute("condition", conditions);
+        request.setAttribute("currentPage", currentPage);
+
+        request.getRequestDispatcher("/list.jsp").forward(request, response);
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response)

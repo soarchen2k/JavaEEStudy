@@ -7,7 +7,7 @@ public class PageBean<E> {
     private List<E> list;        // 每页的数据
     private int totalCount;      // 总的记录数量
     private int row;             // 每页上显示的条目数量（行数）
-    private int totalPages;      // 总页码数
+    private int totalPage;      // 总页码数
 
     public PageBean() { }
 
@@ -43,12 +43,12 @@ public class PageBean<E> {
         this.row = row;
     }
 
-    public int getTotalPages() {
-        return totalPages;
+    public int getTotalPage() {
+        return totalPage;
     }
 
-    public void setTotalPages(int totalPages) {
-        this.totalPages = totalPages;
+    public void setTotalPage(int totalPage) {
+        this.totalPage = totalPage;
     }
 
     @Override
@@ -58,7 +58,7 @@ public class PageBean<E> {
                 ", list=" + list +
                 ", totalCount=" + totalCount +
                 ", row=" + row +
-                ", totalPages=" + totalPages +
+                ", totalPages=" + totalPage +
                 '}';
     }
 }

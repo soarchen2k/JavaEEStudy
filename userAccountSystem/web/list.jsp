@@ -136,7 +136,7 @@
                 <td>${user.address}</td>
                 <td>${user.qq}</td>
                 <td>${user.email}</td>
-                <td><a class="btn btn-default btn-sm" href="${pageContext.request.contextPath}/findUserServlet?id=${user.id}">modify</a>&nbsp;
+                <td><a class="btn btn-default btn-sm" href="${pageContext.request.contextPath}/findUserServlet?uid=${user.id}">modify</a>&nbsp;
                     <a class="btn btn-default btn-sm" href="javascript:deleteUser(${user.id});">delete</a></td>
             </tr>
 

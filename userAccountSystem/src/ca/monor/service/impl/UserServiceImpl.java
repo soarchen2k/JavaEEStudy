@@ -60,9 +60,18 @@ public class UserServiceImpl implements UserService {
         pageBean.setTotalCount(totalCount);
         int begin = (currentPage - 1) * rows;
         pageBean.setList(dao.findByPage(begin, rows, condition));
-        int totalPages = totalCount % rows == 0 ? totalCount / rows : (totalCount / rows) + 1;
-        pageBean.setTotalPages(totalPages);
+        int totalPage = totalCount % rows == 0 ? totalCount / rows : (totalCount / rows) + 1;
+        pageBean.setTotalPage(totalPage);
 
         return pageBean;
+    }
+
+    @Override
+    public void deleteSelectedUser(String[] ids) {
+        if (ids != null || ids.length > 0) {
+            for (String id : ids) {
+                deleteUser(Integer.parseInt(id));
+            }
+        }
     }
 }

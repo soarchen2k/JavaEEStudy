@@ -1,12 +1,9 @@
 <component name="ArtifactManager">
-  <artifact type="exploded-war" name="userAccountSystem:war exploded2">
-    <output-path>$PROJECT_DIR$/out/artifacts/userAccountSystem_war_exploded2</output-path>
-    <root id="root">
-      <element id="javaee-facet-resources" facet="userAccountSystem/web/Web" />
+  <artifact type="war" name="userAccountSystem">
+    <output-path>/Volumes/RamDisk</output-path>
+    <root id="archive" name="userAccountSystem.war">
+      <element id="artifact" artifact-name="userAccountSystem:war exploded2" />
       <element id="directory" name="WEB-INF">
-        <element id="directory" name="classes">
-          <element id="module-output" name="userAccountSystem" />
-        </element>
         <element id="directory" name="lib">
           <element id="library" level="module" name="JUnit4" module-name="userAccountSystem" />
           <element id="library" level="module" name="userAccountSystemLib" module-name="userAccountSystem" />

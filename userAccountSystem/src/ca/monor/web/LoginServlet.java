@@ -37,17 +37,17 @@ public class LoginServlet extends HttpServlet {
                 // 把 user 对象放回域当中
                 session.setAttribute("user", logged);
                 // 跳转到首页
-                response.sendRedirect(request.getContextPath() + "/index.jsp");
+                response.sendRedirect(request.getContextPath() + "/findUserByPageServlet");
             } else {  // 登录失败
                 request.setAttribute("login_msg", "Username or password wrong");
-                request.getRequestDispatcher("/login.jsp").forward(request, response);
+                request.getRequestDispatcher("/index.jsp").forward(request, response);
             }
 
         } else {
 
             // 验证码不正确，需要给用户返回一个错误信息
             request.setAttribute("login_msg", "Check Code Error!");
-            request.getRequestDispatcher("/login.jsp").forward(request, response);
+            request.getRequestDispatcher("/index.jsp").forward(request, response);
         }
     }
 

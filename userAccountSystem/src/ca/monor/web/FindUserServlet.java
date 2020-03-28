@@ -1,5 +1,7 @@
 package ca.monor.web;
 
+import ca.monor.service.impl.UserServiceImpl;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -11,7 +13,10 @@ import java.io.IOException;
 public class FindUserServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-
+        request.setAttribute("user",
+                new UserServiceImpl().findUserById
+                        (Integer.parseInt(request.getParameter("uid"))));
+        request.getRequestDispatcher("/update.jsp").forward(request, response);
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
