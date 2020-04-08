@@ -84,7 +84,7 @@ public class UserDaoImpl implements UserDao {
             String value = condition.get(key)[0];
             if (value != null && !"".equals(value)) {
                 // 有值
-                stringBuilder.append(" && " + key + " like ? ");
+                stringBuilder.append(" && ").append(key).append(" like ? ");
                 params.add("%" + value + "%");  // 此处是 ? 中的条件值，%是模糊查询所需的语法
             }
         }
@@ -112,7 +112,7 @@ public class UserDaoImpl implements UserDao {
             String value = condition.get(key)[0];
             if (value != null && !"".equals(value)) {
                 // 有值
-                stringBuilder.append(" && " + key + " like ? ");
+                stringBuilder.append(" && ").append(key).append(" like ? ");
                 params.add("%" + value + "%");  // 此处是 ? 中的条件值，%是模糊查询所需的语法
             }
         }

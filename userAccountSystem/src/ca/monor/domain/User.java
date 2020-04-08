@@ -1,5 +1,8 @@
 package ca.monor.domain;
 
+/**
+ * Domain 层用于定义对象，是数据库表对应的实体类
+ */
 public class User {
     private int id;
     private String name;
@@ -8,7 +11,6 @@ public class User {
     private String address;
     private String qq;
     private String email;
-
 
     private String username;
     private String password;

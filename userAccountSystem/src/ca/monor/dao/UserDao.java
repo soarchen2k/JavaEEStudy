@@ -1,11 +1,12 @@
 package ca.monor.dao;
 
 import ca.monor.domain.User;
-
 import java.util.List;
 import java.util.Map;
 
 /**
+ * DAO 层，即数据库访问层，Data Access Object
+ * 所有的 sql 语句都在这一层实现
  * 在接口中先定义所有需要实现的功能
  * 接口中定义的方法就是我们要实现的功能
  */
