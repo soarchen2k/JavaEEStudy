@@ -3,7 +3,7 @@ package ca.monor.domain;
 /**
  * Domain 层用于定义对象，是数据库表对应的实体类
  */
-public class User {
+public class User implements java.io.Serializable{
     private int id;
     private String name;
     private String gender;
