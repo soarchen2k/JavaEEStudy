@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Json 2</title>
+    <script>
+        var person = {"name": "dal", "age": 29, "gender": "M"};
+        // for (var key in person) {
+        //     alert(key + " : " + person[key]);
+        // }
+
+        var persons2 = [{"name": "dal1", "age": 29, "gender": "M"},
+            {"name": "dal2", "age": 29, "gender": "M"},
+            {"name": "dal3", "age": 29, "gender": "M"}];
+
+        for (var i = 0; i < persons2.length; i++) {
+            let persons2Element = persons2[i];
+            for (var key in persons2Element) {
+                alert(key + " : " + persons2Element[key]);
+            }
+        }
+
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>
