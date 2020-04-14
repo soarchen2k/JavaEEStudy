@@ -27,7 +27,7 @@
 </head>
 <body>
 <div class="container" style="width: 400px;">
-    <h3 style="text-align: center;">Administrator login 8081</h3>
+    <h3 style="text-align: center;">Administrator login 8080</h3>
     <form action="${pageContext.request.contextPath}/loginServlet" method="post">
         <div class="form-group">
             <label for="user">username：</label>
