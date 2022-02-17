@@ -20,11 +20,12 @@
             <entry key="com.zeroturnaround.jrebel.remoting.ModuleRemoteServerSelection" value="off" />
             <entry key="com.zeroturnaround.jrebel.remoting.ModuleSpecificSingleRemoteServer" />
             <entry key="jrebelEnabled" value="true" />
-            <entry key="lastExternalPluginCheckTime" value="1589139632637" />
+            <entry key="lastExternalPluginCheckTime" value="1645060357451" />
             <entry key="savedRebelXmlBuildTool" />
             <entry key="savedRebelXmlContent" />
           </map>
         </option>
+        <option name="version" value="2" />
       </configuration>
     </facet>
   </component>
@@ -56,5 +57,8 @@
         <SOURCES />
       </library>
     </orderEntry>
+    <orderEntry type="library" name="lib (2)" level="application" />
+    <orderEntry type="library" name="lib (3)" level="project" />
+    <orderEntry type="library" name="Java EE 6-Java EE 6" level="project" />
   </component>
 </module>
